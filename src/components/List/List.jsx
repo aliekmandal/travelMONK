@@ -4,20 +4,20 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import useStyles from "./styles";
 import Placedetails from "../Placedetails/Placedetails";
 
-const places = [
-    {name : "one place"},
-    {name : "cool place"},
-    {name : "one place"},
-    {name : "cool place"},
-    {name : "one place"},
-    {name : "cool place"},
-    {name : "one place"},
-    {name : "cool place"},
-    {name : "one place"},
-    {name : "cool place"},
-]
+// const places = [
+//     {name : "one place"},
+//     {name : "cool place"},
+//     {name : "one place"},
+//     {name : "cool place"},
+//     {name : "one place"},
+//     {name : "cool place"},
+//     {name : "one place"},
+//     {name : "cool place"},
+//     {name : "one place"},
+//     {name : "cool place"},
+// ]
 
-const List = () => {
+const List = ({places}) => {
 
     const classes = useStyles();
     const [type, setType] = useState('restuarants');
