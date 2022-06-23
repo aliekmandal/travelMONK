@@ -13,9 +13,10 @@ import Placedetails from "./components/Placedetails/Placedetails";
 const App = () => {
 
     const [places ,setPlaces] = useState(); 
-
+    const [childClicked , setChildClicked] = useState(null);
     const [coordinates , setCoordinates] = useState({});
     const [bounds , setBounds] = useState({});
+    
 
     //to get the user current location
     useEffect(() => {
@@ -42,7 +43,8 @@ const App = () => {
                 <Grid container spacing={3}>
                     <Grid item xs = {12} md = {4}>
                         <List
-                           places = {places} 
+                           places = {places}
+                           childClicked = {childClicked} 
                         />
                     </Grid>
                     <Grid item xs ={12} md = {8}>
@@ -50,6 +52,9 @@ const App = () => {
                             setCoordinates = {setCoordinates}
                             setBounds = {setBounds} 
                             coordinates = {coordinates}
+                            places = {places}
+                            setChildClicked = {setChildClicked}
+
                         />
                     </Grid>
                     

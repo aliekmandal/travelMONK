@@ -10,7 +10,7 @@ const Placedetails = ({place}) => {
 
     const classes = useStyles();
 
-    console.log(place);
+    //console.log(place);
     return (
         <Card elevation={6}>
             <CardMedia
@@ -24,6 +24,12 @@ const Placedetails = ({place}) => {
 
             {/* place name */}
                 <Typography gutterBottom variant = "h5" >{place.name}</Typography>
+
+             {/* raing */}
+             <Box display= "flex" justifyContent= "space-between">
+                    <Rating value={Number(place.rating)} readOnly/>
+                    <Typography variant="subtitle1">out of {place.num_reviews} reviews</Typography>
+                </Box>
 
             {/* price */}
                 <Box display= "flex" justifyContent= "space-between">
