@@ -12,10 +12,10 @@ import Placedetails from "./components/Placedetails/Placedetails";
 
 const App = () => {
 
-    const [places ,setPlaces] = useState([]); 
+    const [places ,setPlaces] = useState(); 
 
     const [coordinates , setCoordinates] = useState({});
-    const [bounds , setBounds] = useState();
+    const [bounds , setBounds] = useState({});
 
     //to get the user current location
     useEffect(() => {
@@ -25,13 +25,14 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        console.log(coordinates , bounds);
+        //console.log(coordinates , bounds);
 
         getPlacesData(bounds.sw , bounds.ne)
             .then((data) => {
+                //console.log(data);
                 setPlaces(data);
         })
-    }, [coordinates , bounds]);
+    }, [coordinates,bounds]);
 
     return (
         <>
@@ -41,7 +42,7 @@ const App = () => {
                 <Grid container spacing={3}>
                     <Grid item xs = {12} md = {4}>
                         <List
-                            places = {places}
+                           places = {places} 
                         />
                     </Grid>
                     <Grid item xs ={12} md = {8}>
