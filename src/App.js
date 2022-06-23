@@ -16,6 +16,9 @@ const App = () => {
     const [childClicked , setChildClicked] = useState(null);
     const [coordinates , setCoordinates] = useState({});
     const [bounds , setBounds] = useState({});
+
+    const [type, setType] = useState('restaurants');
+    const [rating, setRating] = useState('0');
     
 
     //to get the user current location
@@ -28,12 +31,12 @@ const App = () => {
     useEffect(() => {
         //console.log(coordinates , bounds);
 
-        getPlacesData(bounds.sw , bounds.ne)
+        getPlacesData(type ,bounds.sw , bounds.ne)
             .then((data) => {
-                //console.log(data);
+                console.log(data);
                 setPlaces(data);
         })
-    }, [coordinates,bounds]);
+    }, [type,coordinates,bounds]);
 
     return (
         <>
@@ -45,6 +48,10 @@ const App = () => {
                         <List
                            places = {places}
                            childClicked = {childClicked} 
+                           type = {type}
+                           setType = {setType}
+                           rating = {rating}
+                           setRating = {setRating}
                         />
                     </Grid>
                     <Grid item xs ={12} md = {8}>
